@@ -282,44 +282,66 @@ print(rows)
 # A readme editor https://readme.so/editor. Remember to use licence, acnowledgements, usage/examples, title and description. You can add a logo.
 # after using the readme editor, you can just copy paste it into your readme file. 
 import os
-import json
+# import json
 import pandas as pd
 
 
 import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
+# from spotipy.oauth2 import SpotifyClientCredentials
 
-os.chdir("C:/Users/labor/OneDrive/Dokumenter/GitHub/Programming/Project_python/Project_python")
-
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="0bc4658220f0466791e8436c824efd4a",
-                                                           client_secret="a57bd7d70878490bb2eae3fe0e8a3e30"))
-
-playlist_uris = ["1x6F69hJQYRTiWjD5F567h",
-                 "078tWWpvyl9a3O0QIZo5B7",
-                 "3rcn9wzz5UbtQU9aJyLUUc"
-                ]
+os.chdir("C:\Python scripts\GitHub\Programming\Project_python\Project_python")
 
 
-sp.artist_albums('0hEurMDQu99nJRq8pTxO14', country='No')
 
-for x in playlist_uris:
-    print(sp.playlist(x)["name"])
+# playlist_uris = ["1x6F69hJQYRTiWjD5F567h",
+  #               "078tWWpvyl9a3O0QIZo5B7",
+   #              "3rcn9wzz5UbtQU9aJyLUUc"
+    #            ]
+
+# dirty_loops = sp.artist("5Apl0wL4OwNUDYkx69rMDQ")
+
+# print(dirty_loops["popularity"])
+
+# sp.artist_albums('0hEurMDQu99nJRq8pTxO14',country='No')
+
+
+# for x in playlist_uris:
+ #   print(sp.playlist(x)["name"])
     
-def get_average_feature(playlist_uri, feature="danceability"):
-    name = sp.playlist(playlist_uri)["name"]
-    
-    feature_values = []
-    for track in sp.playlist_tracks(playlist_uri)["items"]:
-        track_uri = track["track"]["uri"]
-        features = sp.audio_features(track_uri)[0]
-        feature_values.append(features[feature])
-    
-    return name, feature_values, track_uri
-#sp.
 
-for i in playlist_uris:
-    data = get_average_feature(i)
-    print(data["track_uri"])
+sp_scopes    = "user-read-playback-state, user-read-currently-playing, user-read-playback-position, user-top-read, user-read-recently-played, playlist-read-private, playlist-read-collaborative"
+sp_redirect  = "http://localhost:8888/callback" 
+
+ 
+
+sp_user_auth = spotipy.SpotifyOAuth(
+    client_id     = "0bc4658220f0466791e8436c824efd4a",       # client ID
+    client_secret = "a57bd7d70878490bb2eae3fe0e8a3e30",    # Secret
+    redirect_uri  = sp_redirect,   # redirect to....
+    scope         = sp_scopes)        # access scope
+
+sp_user_auth.get_authorization_code() # Should open the browser which asks your to authorize access
+
+sp = spotipy.Spotify(auth_manager = sp_user_auth)  # Set variable to do calls
+
+user_recently_played = sp.current_user_recently_played() # get users last played songs
+#%%
+# print(user_recently_played)
+
+user_recently_played
+
+user_recently_played["items"][0].keys() # keys to access
+
+user_recently_played["items"][0]["track"] # info under track
+
+
+user_recently_played["items"][0]["track"].keys()
+
+user_recently_played["items"][0]["track"]["name"] # track name
+
+top_tracks = sp.current_user_top_tracks(limit=50, offset=0, time_range='long_term')
+
+print(top_tracks)    
  
 
 

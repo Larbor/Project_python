@@ -1,6 +1,6 @@
 # Python project using spotify api.
 
-A script for analyzing and presenting data personal data using the spotify API.
+A script for analyzing and presenting data from premier league season 2010/2021
 
 
 ## License
