@@ -342,7 +342,20 @@ user_recently_played["items"][0]["track"]["name"] # track name
 top_tracks = sp.current_user_top_tracks(limit=50, offset=0, time_range='long_term')
 
 print(top_tracks)    
- 
+
+#%%
+
+import csv
+rows = []
+with open("C:/Python scripts/GitHub/Programming/Project_python/Project_python/Data/archive (1)/df_full_premierleague.csv", 'r') as premier:
+    csvreader = csv.reader(premier)
+    header = next(csvreader)
+    for row in csvreader:
+        rows.append(row)
+print(header)
+print(rows)
+
+
 
 
  
