@@ -17,5 +17,5 @@ Github link: https://github.com/Larbor/Project_python.git
 
 ## Usage/Examples
 
-The code-file is added as a file in the scripts folder.
+The code-file Premier_data.py is added as a file in the scripts folder.
 
