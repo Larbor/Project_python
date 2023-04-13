@@ -344,18 +344,20 @@ top_tracks = sp.current_user_top_tracks(limit=50, offset=0, time_range='long_ter
 print(top_tracks)    
 
 #%%
-
+import pandas as pd
 import csv
-rows = []
-with open("C:/Python scripts/GitHub/Programming/Project_python/Project_python/Data/archive (1)/df_full_premierleague.csv", 'r') as premier:
-    csvreader = csv.reader(premier)
-    header = next(csvreader)
-    for row in csvreader:
-        rows.append(row)
-print(header)
-print(rows)
+#rows = []
+#with open("C:/Python scripts/GitHub/Programming/Project_python/Project_python/Data/archive (1)/df_full_premierleague.csv", 'r') as premier:
+    #csvreader = csv.reader(premier)
+    #header = next(csvreader)
+    #for row in csvreader:
+        #rows.append(row)
+#print(header)
+#print(rows)
 
 
+cs_df = pd.read_csv("C:/Python scripts/GitHub/Programming/Project_python/Project_python/Data/archive (1)/df_full_premierleague.csv")
+cs_df.head()
 
 
  
