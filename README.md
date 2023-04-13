@@ -1,6 +1,6 @@
 # Python project using spotify api.
 
-A script for analyzing and presenting data from premier league season 2010/2021.
+A script analyzing and presenting data from premier league season 2010/2021.
 
 The project is used as an exam for the course PSY-3006. It is aimed as training for data vizualisation for researchers. 
 The data was visualised with a barplot, a swarmplot and a lineplot. 
