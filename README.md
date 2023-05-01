@@ -34,8 +34,8 @@ Github link: https://github.com/Larbor/Project_python.git
 
 ### Citation 
 
-- Borge, L. N. (2023). *Premier league stats analysis*. (Cource work). UiT, the Arctic Univeristy of Norway. Data retrived from: https://www.kaggle.com/datasets/pablohfreitas/all-premier-league-matches-20102021
+* Borge, L. N. (2023). *Premier league stats analysis*. (Cource work). UiT, the Arctic Univeristy of Norway. Data retrived from: https://www.kaggle.com/datasets/pablohfreitas/all-premier-league-matches-20102021
 
 ## Acknowledgements
 
-The project was part of the course PSY-3035-1 led by James Edgar McCutcheon
+* The project was part of the course PSY-3035-1 led by James Edgar McCutcheon
